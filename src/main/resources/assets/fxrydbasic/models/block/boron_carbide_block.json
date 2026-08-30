@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "fxrydbasic:block/boron_carbide_block"
-  }
-}
