@@ -1,4 +1,4 @@
-package net.fxryd.testmod;
+package net.fxrydbasic.testmod;
 
 import java.util.List;
 
