@@ -38,6 +38,9 @@ public class TestMod {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        //Register Creative Mod Tab
+        CustomCreativeTab.register(modEventBus);
+
         //Register ModItems
         ModItems.register(modEventBus);
         //Register ModBlocks
@@ -54,15 +57,6 @@ public class TestMod {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.TUNGSTEN_CARBIDE);
-            event.accept(ModItems.BORON_CARBIDE);
-        };
-
-        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-          event.accept(ModBlocks.TUNGSTEN_CARBIDE_BLOCK);
-          event.accept(ModBlocks.BORON_CARBIDE_BLOCK);
-        };
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
