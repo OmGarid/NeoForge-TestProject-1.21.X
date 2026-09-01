@@ -24,6 +24,12 @@ public class CustomCreativeTab {
                 //Items registered to this Tab:
                 output.accept(ModItems.TUNGSTEN_CARBIDE);
                 output.accept(ModItems.BORON_CARBIDE);
+                output.accept(ModItems.RAW_WOLFRAMITE);
+                output.accept(ModItems.SCHEELITE_CRYSTAL);
+                output.accept(ModItems.TUNGSTEN_POWDER);
+                output.accept(ModItems.TUNGSTEN_TRIOXIDE);
+                output.accept(ModItems.COAL_POWDER);
+                output.accept(ModItems.TUNGSTEN_CARBIDE_POWDER);
 
             })
             .build());
@@ -37,6 +43,10 @@ public class CustomCreativeTab {
                 //Blocks registered to this Tab:
                 output.accept(ModBlocks.TUNGSTEN_CARBIDE_BLOCK);
                 output.accept(ModBlocks.BORON_CARBIDE_BLOCK);
+                output.accept(ModBlocks.SCHEELITE_ORE);
+                output.accept(ModBlocks.SCHEELITE_DEEPSLATE_ORE);
+                output.accept(ModBlocks.WOLFRAMITE_ORE);
+                output.accept(ModBlocks.WOLFRAMITE_DEEPSLATE_ORE);
 
             })
             .build());

@@ -1,0 +1,37 @@
+package net.fxrydarmanent.testmod.item.custom;
+
+import net.minecraft.core.Holder;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
+import software.bernie.geckolib.animatable.GeoItem;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.animation.*;
+
+import java.util.function.Consumer;
+
+public class StandardInfantryArmorItem extends ArmorItem implements GeoItem {
+
+    private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+
+    public StandardInfantryArmorItem(Holder<ArmorMaterial> material, Type type, Properties properties) {
+        super(material, type, properties);
+    }
+
+
+    private PlayState predicate(AnimationState animationState) {
+        animationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
+        return PlayState.CONTINUE;
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+        controllerRegistrar.add(new AnimationController(this, "controller", 0, this::predicate));
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return cache;
+    }
+}
