@@ -3,19 +3,16 @@ package net.fxrydarmanent.testmod.item.custom;
 import net.minecraft.core.Holder;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
-import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 
-import java.util.function.Consumer;
-
-public class StandardInfantryArmorItem extends ArmorItem implements GeoItem {
+public class HeavyPilotArmor extends ArmorItem implements GeoItem {
 
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
-    public StandardInfantryArmorItem(Holder<ArmorMaterial> material, Type type, Properties properties) {
+    public HeavyPilotArmor(Holder<ArmorMaterial> material, Type type, Properties properties) {
         super(material, type, properties);
     }
 

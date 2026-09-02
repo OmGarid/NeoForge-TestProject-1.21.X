@@ -20,8 +20,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.SCHEELITE_ORE);
         blockWithItem(ModBlocks.SCHEELITE_DEEPSLATE_ORE);
-        blockWithItem(ModBlocks.WOLFRAMITE_ORE);
-        blockWithItem(ModBlocks.WOLFRAMITE_DEEPSLATE_ORE);
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {

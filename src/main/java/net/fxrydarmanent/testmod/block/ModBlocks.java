@@ -30,12 +30,6 @@ public class ModBlocks {
     //Register SCHEELITE DEEPSLATE ORE
     public static final DeferredBlock<Block> SCHEELITE_DEEPSLATE_ORE = registerBlock("scheelite_deepslate_ore", () -> new Block(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
-    //Register WOLFRAMITE ORE
-    public static final DeferredBlock<Block> WOLFRAMITE_ORE = registerBlock("wolframite_ore", () -> new Block(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
-
-    //Register WOLFRAMITE DEEPSLATE ORE
-    public static final DeferredBlock<Block> WOLFRAMITE_DEEPSLATE_ORE = registerBlock("wolframite_deepslate_ore", () -> new Block(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
-
 
 
 

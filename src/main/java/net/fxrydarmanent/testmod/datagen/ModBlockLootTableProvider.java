@@ -39,11 +39,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         add(ModBlocks.SCHEELITE_DEEPSLATE_ORE.get(),
                 block -> createMultipleOreDrops(ModBlocks.SCHEELITE_DEEPSLATE_ORE.get(), ModItems.SCHEELITE_CRYSTAL.get(), 2, 6));
 
-        //WOLFRAMITE ORES
-        add(ModBlocks.WOLFRAMITE_ORE.get(),
-                block -> createMultipleOreDrops(ModBlocks.WOLFRAMITE_ORE.get(), ModItems.RAW_WOLFRAMITE.get(), 1, 3));
-        add(ModBlocks.WOLFRAMITE_DEEPSLATE_ORE.get(),
-                block -> createMultipleOreDrops(ModBlocks.WOLFRAMITE_DEEPSLATE_ORE.get(), ModItems.RAW_WOLFRAMITE.get(), 2, 6));
 
     }
 

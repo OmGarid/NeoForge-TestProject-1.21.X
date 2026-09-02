@@ -22,17 +22,13 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.TUNGSTEN_CARBIDE_BLOCK.get())
                 .add(ModBlocks.BORON_CARBIDE_BLOCK.get())
                 .add(ModBlocks.SCHEELITE_ORE.get())
-                .add(ModBlocks.SCHEELITE_DEEPSLATE_ORE.get())
-                .add(ModBlocks.WOLFRAMITE_ORE.get())
-                .add(ModBlocks.WOLFRAMITE_DEEPSLATE_ORE.get());
+                .add(ModBlocks.SCHEELITE_DEEPSLATE_ORE.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.TUNGSTEN_CARBIDE_BLOCK.get())
                 .add(ModBlocks.BORON_CARBIDE_BLOCK.get())
                 .add(ModBlocks.SCHEELITE_ORE.get())
-                .add(ModBlocks.SCHEELITE_DEEPSLATE_ORE.get())
-                .add(ModBlocks.WOLFRAMITE_ORE.get())
-                .add(ModBlocks.WOLFRAMITE_DEEPSLATE_ORE.get());
+                .add(ModBlocks.SCHEELITE_DEEPSLATE_ORE.get());
 
 
     }

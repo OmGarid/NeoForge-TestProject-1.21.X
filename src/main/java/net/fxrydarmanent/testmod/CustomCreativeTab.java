@@ -17,19 +17,44 @@ public class CustomCreativeTab {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, FXRYDArmanent.MOD_ID);
 
     //Items Tab
-    public static final Supplier<CreativeModeTab> FXRYD_ITEMS_TAB = CREATIVE_MODE_TAB.register("fxryd_items_tab", () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.TUNGSTEN_CARBIDE.get()))
+    public static final Supplier<CreativeModeTab> FXRYD_ITEMS_TAB = CREATIVE_MODE_TAB.register("fxryd_items_tab", () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.TUNGSTEN_CARBIDE_COMPOSITE.get()))
             .title(Component.translatable("creativetab.fxrydarmanent.fxryd_items"))
             .displayItems((itemDisplayParameters, output) -> {
 
                 //Items registered to this Tab:
-                output.accept(ModItems.TUNGSTEN_CARBIDE);
-                output.accept(ModItems.BORON_CARBIDE);
-                output.accept(ModItems.RAW_WOLFRAMITE);
+                output.accept(ModItems.TUNGSTEN_CARBIDE_COMPOSITE);
+                output.accept(ModItems.BORON_CARBIDE_COMPOSITE);
                 output.accept(ModItems.SCHEELITE_CRYSTAL);
                 output.accept(ModItems.TUNGSTEN_POWDER);
-                output.accept(ModItems.TUNGSTEN_TRIOXIDE);
                 output.accept(ModItems.COAL_POWDER);
                 output.accept(ModItems.TUNGSTEN_CARBIDE_POWDER);
+
+
+            })
+            .build());
+
+    //Firearms Tab
+    public static final Supplier<CreativeModeTab> FXRYD_FIREARMS_TAB = CREATIVE_MODE_TAB.register("fxryd_firearms_tab", () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.TORMENT_PZ.get()))
+            .title(Component.translatable("creativetab.fxrydarmanent.fxryd_firearms"))
+            .displayItems((itemDisplayParameters, output) -> {
+
+                //Items registered to this Tab:
+                output.accept(ModItems.TORMENT_PZ);
+
+
+            })
+            .build());
+
+    //Armors Tab
+    public static final Supplier<CreativeModeTab> FXRYD_ARMOR_TAB = CREATIVE_MODE_TAB.register("fxryd_armor_tab", () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.HEAVY_PILOT_HELMET.get()))
+            .title(Component.translatable("creativetab.fxrydarmanent.fxryd_armors"))
+            .displayItems((itemDisplayParameters, output) -> {
+
+                //Armor
+                output.accept(ModItems.HEAVY_PILOT_HELMET);
+                output.accept(ModItems.HEAVY_PILOT_CHESTPLATE);
+                output.accept(ModItems.HEAVY_PILOT_LEGGINGS);
+                output.accept(ModItems.HEAVY_PILOT_BOOTS);
 
             })
             .build());
@@ -45,8 +70,6 @@ public class CustomCreativeTab {
                 output.accept(ModBlocks.BORON_CARBIDE_BLOCK);
                 output.accept(ModBlocks.SCHEELITE_ORE);
                 output.accept(ModBlocks.SCHEELITE_DEEPSLATE_ORE);
-                output.accept(ModBlocks.WOLFRAMITE_ORE);
-                output.accept(ModBlocks.WOLFRAMITE_DEEPSLATE_ORE);
 
             })
             .build());

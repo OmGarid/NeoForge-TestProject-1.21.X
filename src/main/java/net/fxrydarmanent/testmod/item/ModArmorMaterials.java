@@ -18,13 +18,12 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class ModArmorMaterials extends ArmorMaterials {
-    public static final Holder<ArmorMaterial> STANDARD_INFANTRY_ARMOR = register("standard_infantry_armor", Util.make(new EnumMap<>(ArmorItem.Type.class), p_323379_ -> {
-        p_323379_.put(ArmorItem.Type.BOOTS, 5);
-        p_323379_.put(ArmorItem.Type.LEGGINGS, 10);
-        p_323379_.put(ArmorItem.Type.CHESTPLATE, 30);
-        p_323379_.put(ArmorItem.Type.HELMET, 10);
-        p_323379_.put(ArmorItem.Type.BODY, 20);
-    }), 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0F, 1.0F, () -> Ingredient.of(ModItems.TUNGSTEN_CARBIDE));
+    public static final Holder<ArmorMaterial> HEAVY_PILOT_ARMOR = register("heavy_pilot_armor", Util.make(new EnumMap<>(ArmorItem.Type.class), p_323379_ -> {
+        p_323379_.put(ArmorItem.Type.BOOTS, 6);
+        p_323379_.put(ArmorItem.Type.LEGGINGS, 12);
+        p_323379_.put(ArmorItem.Type.CHESTPLATE, 9);
+        p_323379_.put(ArmorItem.Type.HELMET, 3);
+    }), 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0F, 0.25F, () -> Ingredient.of(ModItems.TUNGSTEN_CARBIDE_COMPOSITE));
 
     public static Holder<ArmorMaterial> bootstrap(Registry<ArmorMaterial> registry) {
         return LEATHER;

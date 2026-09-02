@@ -19,21 +19,41 @@ public class ModRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
-        List<ItemLike> TUNGSTEN_TRIOXIDE_LIST = List.of(ModItems.SCHEELITE_CRYSTAL, ModItems.RAW_WOLFRAMITE, ModBlocks.SCHEELITE_ORE, ModBlocks.WOLFRAMITE_ORE, ModBlocks.SCHEELITE_DEEPSLATE_ORE, ModBlocks.WOLFRAMITE_DEEPSLATE_ORE);
 
+
+
+
+
+
+        //Shaped Crafting - Boron Carbide Composite Block
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BORON_CARBIDE_BLOCK.get())
                 .pattern("BBB")
                 .pattern("BBB")
                 .pattern("BBB")
-                .define('B', ModItems.BORON_CARBIDE.get())
-                .unlockedBy("has_boron_carbide", has(ModItems.BORON_CARBIDE)).save(recipeOutput);
+                .define('B', ModItems.BORON_CARBIDE_COMPOSITE.get())
+                .unlockedBy("has_boron_carbide", has(ModItems.BORON_CARBIDE_COMPOSITE)).save(recipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BORON_CARBIDE.get(), 9)
+        //Shapeless Crafting - Boron Carbide Composite
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BORON_CARBIDE_COMPOSITE.get(), 9)
                 .requires(ModBlocks.BORON_CARBIDE_BLOCK)
                 .unlockedBy("has_boron_carbide_block", has(ModBlocks.BORON_CARBIDE_BLOCK)).save(recipeOutput);
 
-        oreSmelting(recipeOutput, TUNGSTEN_TRIOXIDE_LIST, RecipeCategory.MISC, ModItems.TUNGSTEN_TRIOXIDE.get(), 0.25f, 200, "tungsten");
-        oreBlasting(recipeOutput, TUNGSTEN_TRIOXIDE_LIST, RecipeCategory.MISC, ModItems.TUNGSTEN_TRIOXIDE.get(), 0.25f, 200, "tungsten");
+        //Shaped Crafting - Tungsten Carbide Composite Block
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.TUNGSTEN_CARBIDE_BLOCK.get())
+                .pattern("TTT")
+                .pattern("TTT")
+                .pattern("TTT")
+                .define('B', ModItems.TUNGSTEN_CARBIDE_COMPOSITE.get())
+                .unlockedBy("has_tungsten_carbide", has(ModItems.TUNGSTEN_CARBIDE_COMPOSITE)).save(recipeOutput);
+
+        //Shapeless Crafting - Tungsten Carbide Composite
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TUNGSTEN_CARBIDE_COMPOSITE.get(), 9)
+                .requires(ModBlocks.TUNGSTEN_CARBIDE_BLOCK)
+                .unlockedBy("has_tungsten_carbide_block", has(ModBlocks.TUNGSTEN_CARBIDE_BLOCK)).save(recipeOutput);
+
+
+
+
 
 
     }
