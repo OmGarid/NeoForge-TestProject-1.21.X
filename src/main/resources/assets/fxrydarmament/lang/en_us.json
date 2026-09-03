@@ -1,0 +1,29 @@
+{
+  "item.fxrydarmament.tungsten_carbide": "Tungsten Carbide Composite",
+  "item.fxrydarmament.boron_carbide": "Boron Carbide Composite",
+  "item.fxrydarmament.coal_powder": "Coal Powder",
+  "item.fxrydarmament.raw_wolframite": "Raw Wolframite",
+  "item.fxrydarmament.scheelite_crystal": "Scheelite Crystal",
+  "item.fxrydarmament.tungsten_trioxide": "Tungsten Trioxide",
+  "item.fxrydarmament.tungsten_powder": "Tungsten Powder",
+  "item.fxrydarmament.tungsten_carbide_powder": "Tungsten Carbide Powder",
+
+  "item.fxrydarmament.heavy_pilot_helmet": "Heavy Pilot Helmet",
+  "item.fxrydarmament.heavy_pilot_chestplate": "Heavy Pilot Chestplate",
+  "item.fxrydarmament.heavy_pilot_leggings": "Heavy Pilot Leggings",
+  "item.fxrydarmament.heavy_pilot_boots": "Heavy Pilot Boots",
+
+  "item.fxrydarmament.torment_pz": "Torment - Prototype Zero",
+
+  "block.fxrydarmament.tungsten_carbide_block": "Tungsten Carbide Composite Block",
+  "block.fxrydarmament.boron_carbide_block": "Boron Carbide Composite Block",
+  "block.fxrydarmament.scheelite_ore": "Scheelite Ore",
+  "block.fxrydarmament.scheelite_deepslate_ore": "Scheelite Deepslate Ore",
+  "block.fxrydarmament.wolframite_ore": "Wolframite Ore",
+  "block.fxrydarmament.wolframite_deepslate_ore": "Wolframite Deepslate Ore",
+
+  "creativetab.fxrydarmament.fxryd_items": "KangCylung's Items",
+  "creativetab.fxrydarmament.fxryd_firearms": "KangCylung's Firearms",
+  "creativetab.fxrydarmament.fxryd_armors": "KangCylung's Armors",
+  "creativetab.fxrydarmament.fxryd_blocks": "KangCylung's Blocks"
+}
