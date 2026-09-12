@@ -1,6 +1,8 @@
 package net.fxrydarmament.testmod;
 
+import net.fxrydarmament.testmod.datacomponent.ModDataComponents;
 import net.fxrydarmament.testmod.block.ModBlocks;
+import net.fxrydarmament.testmod.firearm.component.FireArmComponents;
 import net.fxrydarmament.testmod.item.ModItems;
 import org.slf4j.Logger;
 
@@ -47,6 +49,13 @@ public class FXRYDArmament {
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+
+        // Register Data Components
+        ModDataComponents.DATA_COMPONENTS.register(modEventBus);
+
+        Object ignoredState = FireArmComponents.FIREARM_STATE;
+        Object ignoredId = FireArmComponents.FIREARM_ID;
+
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }

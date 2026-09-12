@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "fxrydarmament:item/heavy_pilot_helmet"
+  }
+}

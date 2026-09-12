@@ -3,7 +3,10 @@ package net.fxrydarmament.testmod.firearm;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
+import net.fxrydarmament.testmod.client.CameraBoneSync;
 import net.fxrydarmament.testmod.client.render.RenderPass;
+import net.fxrydarmament.testmod.firearm.client.FlatIconRenderer;
+import net.fxrydarmament.testmod.firearm.component.FireArmComponents;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.resources.ResourceLocation;
 
@@ -48,6 +51,7 @@ public class FireArmRenderer
 
     // >>> TARUH DI SINI, level class, BUKAN di dalam method lain <
     private ItemDisplayContext currentTransformType = ItemDisplayContext.NONE;
+    private final FireArmModel firearmModel;
 
     public ItemDisplayContext getCurrentTransformType() {
         return currentTransformType;
@@ -63,19 +67,77 @@ public class FireArmRenderer
             int packedOverlay
     ) {
         this.currentTransformType = transformType;
+
+        ResourceLocation weaponId = stack.get(FireArmComponents.FIREARM_ID.get());
+        this.firearmModel.setWeaponId(weaponId);
+
+        // GUI (inventory/hotbar) render sebagai flat 2D icon, bukan model 3D
+        if (transformType == ItemDisplayContext.GUI && weaponId != null) {
+            ResourceLocation iconTexture = ResourceLocation.fromNamespaceAndPath(
+                    weaponId.getNamespace(),
+                    "textures/firearm/icon/" + weaponId.getPath() + ".png"
+            );
+
+            System.out.println("ICON TEXTURE = " + iconTexture);
+
+
+
+            poseStack.pushPose();
+            poseStack.translate(0.5F, 0.5F, 0.0F); //Adjust the GUI Position
+            var resource = net.minecraft.client.Minecraft.getInstance()
+                    .getResourceManager()
+                    .getResource(iconTexture);
+
+            System.out.println("ICON EXISTS = " + resource.isPresent());
+
+            FlatIconRenderer.render(poseStack, bufferSource, packedLight, packedOverlay, iconTexture);
+            poseStack.popPose();
+            return; // skip render 3D
+        }
+
         super.renderByItem(stack, transformType, poseStack, bufferSource, packedLight, packedOverlay);
+
+        // TAMBAHAN: sync rotasi bone "camera" ke player camera, cuma pas first-person
+        boolean isFirstPerson = transformType == ItemDisplayContext.FIRST_PERSON_RIGHT_HAND
+                || transformType == ItemDisplayContext.FIRST_PERSON_LEFT_HAND;
+
+        if (isFirstPerson && weaponId != null) {
+            var bakedModel = software.bernie.geckolib.cache.GeckoLibCache.getBakedModels()
+                    .get(this.firearmModel.getModelResource(this.animatable));
+
+            if (bakedModel == null) {
+                System.out.println("DEBUG: bakedModel NULL");
+            } else {
+                bakedModel.getBone("camera").ifPresentOrElse(
+                        cameraBone -> {
+                            System.out.println("DEBUG: camera bone found, rot="
+                                    + cameraBone.getRotX() + ", "
+                                    + cameraBone.getRotY() + ", "
+                                    + cameraBone.getRotZ());
+                            CameraBoneSync.update(
+                                    cameraBone.getRotX(),
+                                    cameraBone.getRotY(),
+                                    cameraBone.getRotZ()
+                            );
+                        },
+                        () -> System.out.println("DEBUG: bone 'camera' NOT FOUND")
+                );
+            }
+        } else {
+            CameraBoneSync.clear();
+        }
     }
-    // >>> SAMPAI SINI <
 
     // Constructor
     public FireArmRenderer() {
         super(new FireArmModel());
 
+        this.firearmModel = (FireArmModel) this.model;
+
         addRenderLayer(
                 new HandsLayer<>(this)
         );
     }
-
 
     // Bone Rendering
     @Override

@@ -3,5 +3,7 @@
   "weapon_desc": "An experimental prototype developed under the Torment Armament program.",
   "magazine_capacity": 30,
   "damage": 22,
-  "fire_rate": 700
+  "fire_rate": 700,
+  "reload_time": 40,
+  "reload_empty_time": 50
 }

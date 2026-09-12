@@ -18,7 +18,7 @@ public class HeavyPilotArmor extends ArmorItem implements GeoItem {
 
 
     private PlayState predicate(AnimationState animationState) {
-        animationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
+        animationState.getController().setAnimation(RawAnimation.begin().then("", Animation.LoopType.LOOP));
         return PlayState.CONTINUE;
     }
 

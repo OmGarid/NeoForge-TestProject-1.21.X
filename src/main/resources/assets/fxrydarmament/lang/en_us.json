@@ -13,7 +13,7 @@
   "item.fxrydarmament.heavy_pilot_leggings": "Heavy Pilot Leggings",
   "item.fxrydarmament.heavy_pilot_boots": "Heavy Pilot Boots",
 
-  "item.fxrydarmament.torment_pz": "Torment - Prototype Zero",
+  "item.fxrydarmament.firearm": "Firearm",
 
   "block.fxrydarmament.tungsten_carbide_block": "Tungsten Carbide Composite Block",
   "block.fxrydarmament.boron_carbide_block": "Boron Carbide Composite Block",
@@ -25,5 +25,10 @@
   "creativetab.fxrydarmament.fxryd_items": "KangCylung's Items",
   "creativetab.fxrydarmament.fxryd_firearms": "KangCylung's Firearms",
   "creativetab.fxrydarmament.fxryd_armors": "KangCylung's Armors",
-  "creativetab.fxrydarmament.fxryd_blocks": "KangCylung's Blocks"
+  "creativetab.fxrydarmament.fxryd_blocks": "KangCylung's Blocks",
+
+  "key.categories.fxrydarmament": "KangCylung's Stupid Armament",
+
+  "key.fxrydarmament.fire": "Fire",
+  "key.fxrydarmament.reload": "Reload Firearm"
 }

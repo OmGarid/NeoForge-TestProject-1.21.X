@@ -24,9 +24,6 @@ public class ModArmorMaterials extends ArmorMaterials {
         p_323379_.put(ArmorItem.Type.HELMET, 3);
     }), 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0F, 0.25F, () -> Ingredient.of(ModItems.TUNGSTEN_CARBIDE_COMPOSITE));
 
-    public static Holder<ArmorMaterial> bootstrap(Registry<ArmorMaterial> registry) {
-        return LEATHER;
-    }
 
     private static Holder<ArmorMaterial> register(
             String name,

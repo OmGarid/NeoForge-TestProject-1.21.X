@@ -3,6 +3,7 @@ package net.fxrydarmament.testmod.item;
 import net.fxrydarmament.testmod.FXRYDArmament;
 import net.fxrydarmament.testmod.firearm.FireArmItem;
 import net.fxrydarmament.testmod.item.custom.HeavyPilotArmor;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
@@ -41,9 +42,13 @@ public class ModItems {
 
 
 
-    //Firearms
-    public static final DeferredItem<Item> TORMENT_PZ = ITEMS.registerItem("torment_pz",
-            FireArmItem::new, new Item.Properties().stacksTo(1));
+    // Firearms
+    public static final DeferredItem<FireArmItem> FIREARM = ITEMS.registerItem(
+            "firearm",
+            properties -> new FireArmItem(
+                    properties.stacksTo(1)
+            )
+    );
 
 
 

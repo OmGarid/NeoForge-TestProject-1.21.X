@@ -1,6 +1,9 @@
 package net.fxrydarmament.testmod;
 
 import net.fxrydarmament.testmod.block.ModBlocks;
+import net.fxrydarmament.testmod.firearm.FireArmData;
+import net.fxrydarmament.testmod.firearm.FireArmDataLoader;
+import net.fxrydarmament.testmod.firearm.FireArmFactory;
 import net.fxrydarmament.testmod.item.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -33,17 +36,32 @@ public class CustomCreativeTab {
             })
             .build());
 
-    //Firearms Tab
-    public static final Supplier<CreativeModeTab> FXRYD_FIREARMS_TAB = CREATIVE_MODE_TAB.register("fxryd_firearms_tab", () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.TORMENT_PZ.get()))
-            .title(Component.translatable("creativetab.fxrydarmament.fxryd_firearms"))
-            .displayItems((itemDisplayParameters, output) -> {
+    // Firearms Tab
+    public static final Supplier<CreativeModeTab> FXRYD_FIREARMS_TAB =
+            CREATIVE_MODE_TAB.register("fxryd_firearms_tab", () ->
+                    CreativeModeTab.builder()
+                            .icon(() -> FireArmFactory.create(
+                                    ResourceLocation.fromNamespaceAndPath("fxrydarmament", "torment_pz")
+                            ))
+                            .title(Component.translatable(
+                                    "creativetab.fxrydarmament.fxryd_firearms"
+                            ))
+                            .displayItems((itemDisplayParameters, output) -> {
 
-                //Items registered to this Tab:
-                output.accept(ModItems.TORMENT_PZ);
+                                // Add all firearm definitions loaded from JSON
+                                for (FireArmData firearm :
+                                        FireArmDataLoader.getAll().values()) {
 
+                                    output.accept(
+                                            FireArmFactory.create(
+                                                    firearm.getWeaponId()
+                                            )
+                                    );
+                                }
 
-            })
-            .build());
+                            })
+                            .build()
+            );
 
     //Armors Tab
     public static final Supplier<CreativeModeTab> FXRYD_ARMOR_TAB = CREATIVE_MODE_TAB.register("fxryd_armor_tab", () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.HEAVY_PILOT_HELMET.get()))

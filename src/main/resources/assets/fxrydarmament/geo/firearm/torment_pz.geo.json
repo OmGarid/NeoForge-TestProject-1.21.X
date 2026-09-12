@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.110",
+	"format_version": "1.12.0",
 	"minecraft:geometry": [
 		{
 			"description": {
@@ -21,8 +21,13 @@
 					"pivot": [0, 0, 0]
 				},
 				{
-					"name": "main_prototypezero",
+					"name": "gun_root",
 					"parent": "root",
+					"pivot": [0, -2.75, 0]
+				},
+				{
+					"name": "main_prototypezero",
+					"parent": "gun_root",
 					"pivot": [-0.00408, -2.96817, 0.21133]
 				},
 				{
@@ -5230,13 +5235,8 @@
 					]
 				},
 				{
-					"name": "camera",
-					"parent": "root",
-					"pivot": [0, 0, 13]
-				},
-				{
 					"name": "leftarm",
-					"parent": "root",
+					"parent": "gun_root",
 					"pivot": [5, -2, 0],
 					"cubes": [
 						{"origin": [4, -12, -2], "size": [4, 12, 4], "uv": [32, 48]}
@@ -5244,11 +5244,16 @@
 				},
 				{
 					"name": "rightarm",
-					"parent": "root",
+					"parent": "gun_root",
 					"pivot": [-5, -2, 0],
 					"cubes": [
 						{"origin": [-8, -12, -2], "size": [4, 12, 4], "uv": [40, 16]}
 					]
+				},
+				{
+					"name": "camera",
+					"parent": "root",
+					"pivot": [5.5, 0, 13]
 				}
 			]
 		}

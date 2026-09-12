@@ -1,8 +1,10 @@
 package net.fxrydarmament.testmod.firearm;
 
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.resources.ResourceLocation;
+import net.fxrydarmament.testmod.firearm.component.FireArmComponents;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.AnimatableManager;
@@ -12,30 +14,70 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 public class FireArmItem extends Item implements GeoItem {
 
-    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+    private final AnimatableInstanceCache cache =
+            GeckoLibUtil.createInstanceCache(this);
 
     public FireArmItem(Properties properties) {
         super(properties);
-    }
-
-    // Ambil ID item ini sendiri dari registry, misal "fxrydarmanent:torment_pz"
-    public ResourceLocation getWeaponId() {
-        return BuiltInRegistries.ITEM.getKey(this);
-    }
-
-    // Ambil data statistik senjata ini dari loader, berdasarkan ID di atas
-    public FireArmData getWeaponData() {
-        return FireArmDataLoader.get(this.getWeaponId().toString());
+        software.bernie.geckolib.animatable.SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
     @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-        controllerRegistrar.add(new AnimationController<>(this, "idle_controller", 0,
-                state -> state.setAndContinue(RawAnimation.begin().thenLoop("fxrydarmanent.tpz.idle"))));
+    public void registerControllers(
+            AnimatableManager.ControllerRegistrar controllerRegistrar
+    ) {
+        AnimationController<FireArmItem> controller =
+                new AnimationController<>(
+                        this,
+                        "idle_controller",
+                        0,
+                        state -> state.setAndContinue(
+                                RawAnimation.begin()
+                                        .thenLoop("idle")
+                        )
+                );
+
+        controller.triggerableAnim(
+                "shoot",
+                RawAnimation.begin()
+                        .thenPlay("shoot")
+        );
+
+        controller.triggerableAnim(
+                "reload",
+                RawAnimation.begin()
+                        .thenPlay("reload")
+        );
+
+        controller.triggerableAnim(
+                "reloadempty",
+                RawAnimation.begin()
+                        .thenPlay("reloadempty")
+        );
+
+        controllerRegistrar.add(controller);
+    }
+
+    @Override
+    public Component getName(ItemStack stack) {
+
+        ResourceLocation weaponId =
+                stack.get(FireArmComponents.FIREARM_ID.get());
+
+        if (weaponId != null) {
+            FireArmData data =
+                    FireArmDataLoader.get(weaponId);
+
+            if (data != null) {
+                return Component.literal(data.getWeaponName());
+            }
+        }
+
+        return super.getName(stack);
     }
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return this.cache;
+        return cache;
     }
 }

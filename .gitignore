@@ -38,3 +38,4 @@ run/
 **/src/generated/**/.cache/
 repo/
 !**/src/**/repo/
+/[10.09.2026].zip

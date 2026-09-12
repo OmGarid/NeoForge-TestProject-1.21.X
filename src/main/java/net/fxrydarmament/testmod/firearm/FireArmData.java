@@ -1,27 +1,41 @@
 package net.fxrydarmament.testmod.firearm;
 
+import net.minecraft.resources.ResourceLocation;
+
 public class FireArmData {
 
-    private final String weaponId;
+    private final ResourceLocation weaponId;
     private final String weaponName;
     private final String weaponDesc;
     private final int magazineCapacity;
     private final int damage;
     private final int fireRate;
+    private final int reloadTime;
+    private final int reloadEmptyTime;
 
-
-    // Getter
-    public FireArmData(String weaponId, String weaponName, String weaponDesc,
-                       int magazineCapacity, int damage, int fireRate) {
+    // Constructor
+    public FireArmData(
+            ResourceLocation weaponId,
+            String weaponName,
+            String weaponDesc,
+            int magazineCapacity,
+            int damage,
+            int fireRate,
+            int reloadTime,
+            int reloadEmptyTime
+    ) {
         this.weaponId = weaponId;
         this.weaponName = weaponName;
         this.weaponDesc = weaponDesc;
         this.magazineCapacity = magazineCapacity;
         this.damage = damage;
         this.fireRate = fireRate;
+        this.reloadTime = reloadTime;
+        this.reloadEmptyTime = reloadEmptyTime;
     }
 
-    public String getWeaponId() {
+    // Getter
+    public ResourceLocation getWeaponId() {
         return weaponId;
     }
 
@@ -43,5 +57,13 @@ public class FireArmData {
 
     public int getFireRate() {
         return fireRate;
+    }
+
+    public int getReloadTime() {
+        return reloadTime;
+    }
+
+    public int getReloadEmptyTime() {
+        return reloadEmptyTime;
     }
 }
